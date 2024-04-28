@@ -1,0 +1,456 @@
+@mixin sm {
+    @media only screen and (min-width: 640px) {
+        @content;
+    }
+}
+
+@mixin md {
+    @media only screen and (min-width: 768px) {
+        @content;
+    }
+}
+
+@mixin lg {
+    @media only screen and (min-width: 1024px) {
+        @content;
+    }
+}
+
+@mixin xl {
+    @media only screen and (min-width: 1280px) {
+        @content;
+    }
+}
+
+@mixin xxl {
+    @media only screen and (min-width: 1536px) {
+        @content;
+    }
+}
+
+@mixin ellipsis($line: 2) {
+    display: -webkit-box;
+    -webkit-line-clamp: $line;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.header {
+    position: fixed;
+    transform: translateY(0);
+    width: 100%;
+    height: 60px;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    transition: all ease 0.5s;
+    z-index: 2;
+    &.top {
+        background: rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(3.5px);
+        -webkit-backdrop-filter: blur(3.5px);
+    }
+
+    .contentWrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .logo {
+        cursor: pointer;
+        span {
+            color: whitesmoke;
+            font-size: 20px;
+            font-weight: 700;
+        }
+    }
+}
+
+.heroBanner {
+    width: 100%;
+    height: 700px;
+    background-color: var(--black);
+    display: flex;
+    align-items: center;
+    position: relative;
+    @include md {
+        height: 1000px;
+    }
+    .backdrop-img {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0.5;
+        overflow: hidden;
+        .lazy-load-image-background {
+            width: 100%;
+            height: 100%;
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+            }
+        }
+    }
+    .opacity-layer {
+        width: 100%;
+        height: 250px;
+        background: linear-gradient(180deg, rgba(4, 21, 45, 0) 0%, #04152d 79.17%);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+    .heroBannerContent {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: white;
+        text-align: center;
+        position: relative;
+        max-width: 800px;
+        margin: 0 auto;
+        .title {
+            font-size: 50px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            @include md {
+                margin-bottom: 0;
+                font-size: 90px;
+            }
+        }
+        .subTitle {
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 40px;
+            margin-top: 15px;
+            @include md {
+                font-size: 24px;
+            }
+        }
+        .searchInput {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            input {
+                width: calc(100% - 100px);
+                height: 50px;
+                background-color: white;
+                outline: 0;
+                border: 0;
+                border-radius: 30px 0 0 30px;
+                padding: 0 15px;
+                font-size: 14px;
+                @include md {
+                    width: calc(100% - 150px);
+                    height: 60px;
+                    font-size: 20px;
+                    padding: 0 30px;
+                }
+            }
+            button {
+                width: 100px;
+                height: 50px;
+                background: var(--gradient);
+                color: white;
+                outline: 0;
+                border: 0;
+                border-radius: 0 30px 30px 0;
+                font-size: 16px;
+                cursor: pointer;
+                @include md {
+                    width: 150px;
+                    height: 60px;
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+}
+
+.HomeSearch {
+    margin-top: 20vh;
+}
+.genreHeader {
+    color: #fff !important;
+    text-align: center;
+    font-family: "Montserrat";
+    margin-top: 100px;
+}
+.buttonGrid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 0px !important;
+    padding-bottom: 20px;
+    width: 70%;
+    margin-bottom: 6.5vh;
+    transform: 0.2s all;
+}
+
+.HomeFooter {
+    position: "fixed";
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.genreTagON {
+    padding: 10px 20px;
+    color: black !important;
+    background-color: #edf2f4;
+    border-radius: 20px;
+    margin-left: 3px;
+    margin-right: 3px;
+    cursor: pointer;
+    margin: 4px 5px;
+    z-index: 9;
+}
+.genreTagON:hover {
+    background-color: #adb5bd !important;
+}
+.genreTagOFF {
+    color: #fff !important;
+    padding: 10px 20px;
+    background-color: #1d1d1d;
+    border-radius: 20px;
+    margin-left: 3px;
+    margin-right: 3px;
+    cursor: pointer;
+    margin: 4px 5px;
+    z-index: 9;
+}
+.genreTagOFF:hover {
+    background-color: #1d1d1d !important;
+}
+.container-fluid {
+    padding: 0;
+}
+i {
+    padding-left: 4px;
+}
+.HomeMovies {
+    width: 100%;
+    background-color: #0f1014;
+    margin-top: 0;
+    padding-top: 30px;
+}
+.HomeMovieGrid {
+    display: grid;
+    gap: 15px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.searchResultsPage {
+    min-height: 700px;
+    padding-top: 100px;
+    .resultNotFound {
+        font-size: 24px;
+        color: var(--black-light);
+    }
+    .pageTitle {
+        font-size: 24px;
+        line-height: 34px;
+        color: white;
+        margin-bottom: 25px;
+    }
+    .content {
+        display: flex;
+        flex-flow: row wrap;
+        gap: 10px;
+        margin-bottom: 50px;
+        @include md {
+            gap: 20px;
+        }
+        .movieCard {
+            .posterBlock {
+                margin-bottom: 20px;
+            }
+        }
+    }
+}
+
+.searchBar {
+    z-index: 9999;
+    * {
+        z-index: 9999;
+    }
+}
+.carouselSection {
+    position: relative;
+    margin-bottom: 70px;
+    & > .contentWrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+    .carouselTitle {
+        font-size: 24px;
+        color: white;
+        font-weight: normal;
+    }
+}
+.footer {
+    background-color: var(--black3);
+    padding: 50px 0;
+    color: white;
+    position: relative;
+    .contentWrapper {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    .menuItems {
+        list-style-type: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        margin-bottom: 20px;
+        @include md {
+            margin-bottom: 30px;
+            gap: 30px;
+        }
+        .menuItem {
+            transition: all ease 0.3s;
+            cursor: pointer;
+            font-size: 12px;
+            @include md {
+                font-size: 16px;
+            }
+            &:hover {
+                color: var(--pink);
+            }
+        }
+    }
+    .infoText {
+        font-size: 12px;
+        line-height: 20px;
+        opacity: 0.5;
+        text-align: center;
+        max-width: 800px;
+        margin-bottom: 20px;
+        @include md {
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+    }
+    .socialIcons {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        .icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--black);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all ease 0.3s;
+            &:hover {
+                box-shadow: 0 0 0.625em var(--pink);
+                color: var(--pink);
+            }
+        }
+    }
+}
+.contentWrapper {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.movieCard {
+    width: calc(50% - 5px);
+    margin-bottom: 25px;
+    cursor: pointer;
+    flex-shrink: 0;
+    @include md {
+        width: calc(25% - 15px);
+    }
+    @include lg {
+        width: calc(20% - 16px);
+    }
+    .posterBlock {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 1 / 1.5;
+        background-size: cover;
+        background-position: center;
+        margin-bottom: 30px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        padding: 10px;
+        transition: all ease 0.5s;
+        .lazy-load-image-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+            }
+        }
+        .circleRating {
+            width: 40px;
+            height: 40px;
+            position: relative;
+            top: 30px;
+            background-color: white;
+            flex-shrink: 0;
+            @include md {
+                width: 50px;
+                height: 50px;
+            }
+        }
+        .genres {
+            display: none;
+            position: relative;
+            @include md {
+                display: flex;
+                flex-flow: wrap;
+                justify-content: flex-end;
+            }
+        }
+    }
+    .textBlock {
+        color: white;
+        display: flex;
+        flex-direction: column;
+        .title {
+            font-size: 16px;
+            margin-bottom: 10px;
+            line-height: 24px;
+            @include ellipsis(1);
+            @include md {
+                font-size: 20px;
+            }
+        }
+        .date {
+            font-size: 14px;
+            opacity: 0.5;
+        }
+    }
+    &:hover {
+        .posterBlock {
+            opacity: 0.5;
+        }
+    }
+}
